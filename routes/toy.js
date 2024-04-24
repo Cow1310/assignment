@@ -78,5 +78,10 @@ router.post('/search', async (req, res) => {
    var Toys = await ToyModel.find({ model: new RegExp(keyword, "i") }).populate('manufacturer');
    res.render('toy/index', { Toys })
 })
+router.post('/search', async (req, res) => {
+   let keyword = req.body.keyword;
+   let ChildrenToy = await ChildrenToyModel.find({ name: new RegExp(keyword, "i") });
+   res.render('ChildrenToy/index', { ChildrenToyList : ChildrenToy });
+})
 
 module.exports = router;
