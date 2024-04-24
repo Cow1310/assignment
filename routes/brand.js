@@ -4,8 +4,8 @@ var BrandModel = require('../models/BrandModel');
 var ToyModel = require('../models/ToyModel');
 var BrandModel = require('../models/BrandModel');
 router.get('/', async (req, res) => {
-   var Brand = await BrandModel.find({});
-   res.render('brand/index', { brands });
+   var brands = await BrandModel.find({});
+   res.render('country/index', { brands });
 })
 
 router.get('/add', (req, res) => {
@@ -22,7 +22,7 @@ router.post('/add', async (req, res) => {
 router.get('/edit/:id', async (req, res) => {
    var id = req.params.id;
    var brand = await BrandModel.findById(id);
-   res.render('brand/edit', { brand });
+   res.render('brand/edit', { country });
 })
 
 router.post('/edit/:id', async (req, res) => {
