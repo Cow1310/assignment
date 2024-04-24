@@ -75,8 +75,10 @@
                     <th>Toy color</th>
                     <th>Toy manufacturer</th>
                     <th>Toy country</th>
+                    <th>Toy brand</th>
                     <th>Toy image</th>
-                    <th colspan="2">Menu</th>
+            
+                   <th colspan="2">Menu</th>
                 </tr>
             </thead>
             <tbody>
@@ -87,6 +89,7 @@
                     <td>{{ color }}</td>
                     <td>{{ manufacturer.name }}</td>
                     <td>{{ country.name }}</td>
+                    <td>{{ brand.name }}</td>
                     <td><img src="{{ image }}" alt="" class="img-fluid" style="width: 100px; height: 120px;"></td>
                     <td><a class="btn btn-warning" href="/toy/edit/{{ _id }}">Edit</a></td>
                     <td>

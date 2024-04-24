@@ -22,7 +22,7 @@
           <label for="image">Toy Image:</label>
           <input type="url" class="form-control" name="image" id="image" required>
       </div>
-
+     
       <!-- Color Selection -->
       <fieldset class="form-group">
         <legend class="col-form-label pt-0">Toy color:</legend>
@@ -57,6 +57,14 @@
           <label for="country">Toy Country:</label>
           <select class="form-control" name="country" id="country">
               {{#each countrys }}
+              <option value="{{ _id }}">{{ name }}</option>
+              {{/each}}
+          </select>
+      </div>
+       <div class="form-group">
+          <label for="brand">Toy Brand:</label>
+          <select class="form-control" name="brand" id="country">
+              {{#each brands }}
               <option value="{{ _id }}">{{ name }}</option>
               {{/each}}
           </select>

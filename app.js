@@ -45,8 +45,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/toy', toyRouter);
 app.use('/manufacturer', manufacturerRouter);
-app.use('/country',countryRouter);
-app.use('/brand',brandRouter);
+app.use('/country', countryRouter);
+app.use('/brand', brandRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
