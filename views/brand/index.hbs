@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<div class="container mt-3">
+    <div class="mb-3">
+        <a class="btn btn-info" href="/brand/add">Add new country</a>
+        <a class="btn btn-danger" href="/brand/deleteall">Delete all</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-secondary">
+            <thead>
+                <tr>
+                    <th>Brand name</th>
+                    <th>Brand brand</th>
+                    <th colspan="2">Menu</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each countrys}}
+                <tr>
+                    <td>
+                        <a href="/country/detail/{{ _id }}">{{ name }}</a>
