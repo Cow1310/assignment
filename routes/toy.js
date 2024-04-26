@@ -3,34 +3,27 @@ var router = express.Router();
 var ToyModel = require('../models/ToyModel');
 var ManufacturerModel = require('../models/ManufacturerModel');
 var CountryModel =require('../models/CountryModel');
-var brandRouter = require('../models/BrandModel');
+var BrandModel = require('../models/BrandModel');
 //URL: localhost:3001/toy
 router.get('/', async (req, res) => {
    var toys = await ToyModel.find({}).populate('manufacturer').populate('country').populate('brand');
    //Path: views/toy/index.hbs
-   var countrys =await ToyModel.find({}).populate('country');
-   res.render('toy/index', { toys });
-})
-    var brands =await ToyModel.find({}).populate('brand');
-    res.render('toy/index', { toys });
-    
+    var countrys =await ToyModel.find({}).populate('country');
+    var brands = await ToyModel.find({}).populate('brand');
+   res.render('toy/index', {layout:'layout', toys });
+});
+
 router.get('/customer', async (req, res) => {
    var toys = await ToyModel.find({}).populate('manufacturer');
    //Path: views/toy/index.hbs
    res.render('toy/list', { toys });
-})
-router.get('/customer', async (req, res) => {
-   var toys = await ToyModel.find({}).populate('manufacturer');
-   //Path: views/toy/index.hbs
-   res.render('/', { toys });
-   res.redirect('/');
-})
+});
 
 router.get('/add', async (req, res) => {
    var manufacturers = await ManufacturerModel.find({});
    var countrys = await CountryModel.find({});
    var brands = await BrandModel.find({});
-   res.render('toy/add', { manufacturers, countrys, brand } );
+   res.render('toy/add', { manufacturers,countrys,brands });
 })
 
 router.post('/add', async (req, res) => {
@@ -82,4 +75,5 @@ router.post('/search', async (req, res) => {
    var Toys = await ToyModel.find({ model: new RegExp(keyword, "i") }).populate('manufacturer');
    res.render('toy/index', { Toys })
 })
+
 module.exports = router;

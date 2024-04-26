@@ -8,5 +8,5 @@ var BrandSchema = mongoose.Schema(
          maxlength: 20
       },
    });
-BrandModel = mongoose.model('brand', BrandSchema);
+BrandModel = mongoose.model('brands', BrandSchema);
 module.exports = BrandModel;

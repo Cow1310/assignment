@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var CountryModel = require('../models/CountryModel');
 var ToyModel = require('../models/ToyModel');
-var CountryModel = require('../models/CountryModel');
 router.get('/', async (req, res) => {
    var countrys = await CountryModel.find({});
    res.render('country/index', { countrys });
@@ -37,5 +36,17 @@ router.post('/edit/:id', async (req, res) => {
    }
    res.redirect('/country');
 })
+router.get('/delete/:id', async (req, res) => {
+   var id = req.params.id;
+   
+   var country = await CountryModel.findById(id);
+   await CountryModel.deleteOne(country);
 
+   res.redirect('/country');
+})
+router.get('/deleteall', async (req, res) => {
+   await CountryModel.deleteMany();
+   console.log('Delete all country succeed !');
+   res.redirect('/country');
+})
 module.exports = router;

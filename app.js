@@ -64,6 +64,6 @@ app.use(function(err, req, res, next) {
 });
 
 //4. config port (for cloud deployment)
-app.listen(process.env.PORT || 3001);
+app.listen(process.env.PORT || 3003);
 
 module.exports = app;

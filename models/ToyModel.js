@@ -16,6 +16,7 @@ var ToySchema = mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: 'countrys'  // 'manufacturers': collection
    }
+   
 });
 //Relationship : toys (many) - manufacturers (one)
 
